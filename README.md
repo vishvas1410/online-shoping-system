@@ -9,6 +9,7 @@ User Authentication:
 Registration: New users can create an account by providing details such as username, email, password, and contact information.
 Login/Logout: Users can log in to their accounts to access personalized features and log out to secure their session.
 Product Catalog:
+![image](https://github.com/vishvas1410/online-shoping-system/assets/110728766/fcd8a9a6-312a-458b-a7d7-8651158bb36a)
 
 Product Listings: Display a list of products with details like name, price, description, and image.
 Categories: Products are categorized for easy navigation (e.g., electronics, clothing, home appliances).
@@ -39,67 +40,7 @@ Server-Side Scripting:
 PHP handles the business logic, processes user requests, and interacts with the database.
 Example: A PHP script to add a product to the cart.
 php
-Copy code
-// add_to_cart.php
-session_start();
-if(isset($_POST['product_id'])){
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
 
-    // Assuming $_SESSION['cart'] is an array storing cart items
-    $_SESSION['cart'][$product_id] = $quantity;
-
-    echo "Product added to cart!";
-}
-Database Management:
-
-MySQL stores user information, product details, orders, and transaction records.
-Example: A SQL query to retrieve product details.
-sql
-Copy code
-SELECT * FROM products WHERE product_id = 1;
-Front-End Design:
-
-HTML/CSS creates the layout and style of the web pages.
-Example: A simple product listing page.
-html
-Copy code
-<!-- product_listing.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Product Listing</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <h1>Products</h1>
-    <div class="product">
-        <img src="path/to/image.jpg" alt="Product Image">
-        <h2>Product Name</h2>
-        <p>Product Description</p>
-        <p>Price: $100</p>
-        <button>Add to Cart</button>
-    </div>
-</body>
-</html>
-JavaScript:
-
-Enhances interactivity, such as dynamic updates to the shopping cart without reloading the page.
-Example: Using AJAX to add a product to the cart.
-javascript
-Copy code
-// add_to_cart.js
-function addToCart(productId, quantity) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "add_to_cart.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText);
-        }
-    };
-    xhr.send("product_id=" + productId + "&quantity=" + quantity);
-}
 Security Considerations
 Input Validation: Ensure all user inputs are validated and sanitized to prevent SQL injection and cross-site scripting (XSS) attacks.
 Password Hashing: Store passwords using secure hashing algorithms like bcrypt.
